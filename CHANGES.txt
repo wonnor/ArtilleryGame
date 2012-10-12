@@ -1,0 +1,11 @@
+*CHANGES*
+current version v0.007
+
+-Begun the state machine.
+-added rendering loop.
+-added rudimentary input system
+-added a menu system
+-added a resources folder. call "res".
+	-add two placeholder images
+		-placestart.png is the start menu image
+		-placemain.png is the main menu image
