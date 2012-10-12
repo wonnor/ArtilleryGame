@@ -50,12 +50,10 @@ public class Mob
 
     /**
      * Sets the image of this mob to the image located at field imagePath
-     *
      */
     public void setImage()
     {
-    	try
-		{
+    	try{
     		sprite = ImageIO.read(new File(imagePath));
 		}
 		catch (IOException e) {System.out.println("Could not find " + imagePath);}
@@ -73,12 +71,24 @@ public class Mob
 	}
 
 	/**
-	 * Returns bounding box of this image for purposes of rudimentary collision detection.
-	 * @returns rectangle of same location and size as image.
+	 * Finds bounding box of image of mob for purposes of rudimentary collision detection.
+	 * @return rectangle of same location and size as image.
 	 */
 	public Rectangle getBoundingBox()
 	{
 		return new Rectangle(x, y, sprite.getWidth(), sprite.getHeight());
+	}
+	
+	/**
+	 *
+	 * @param mob
+	 * @return whether the bounding boxes collide
+	 */
+	public boolean isCollidingWith(Mob mob)
+	{
+		if (getBoundingBox().intersects(mob.getBoundingBox()))
+			return true;
+		return false;
 	}
 
 	/**

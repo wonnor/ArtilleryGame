@@ -1,4 +1,4 @@
-package com.pro.artillery.mob;
+package com.pro.artillery.mob.tank;
 
 public class Tank extends Mob
 {
