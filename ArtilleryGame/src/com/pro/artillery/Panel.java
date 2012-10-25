@@ -1,33 +1,45 @@
 package com.pro.artillery;
 
+import com.pro.artillery.state.KED;
+
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
 /**
  * for testing the world
+ * 
  * @author Mike
- *
+ * 
  */
-public class Panel extends JPanel implements Runnable{
+public class Panel extends JPanel implements Runnable {
 	World world;
-	
-	public Panel(){
-		world = new World(800,600);
+	boolean running;
+
+	public Panel() {
+		world = new World(800, 600);
+		running = true;
+		Thread thread = new Thread(this);
+		thread.start();
 	}
-	
-	public void paintComponent(Graphics g){
+
+	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		world.draw(g);
 	}
-	
-	public void run(){
-		repaint();
-		
-		try{
-			Thread.sleep(20);
-		}catch(InterruptedException ie){
-			ie.printStackTrace();
+
+	public void run() {
+		while (running) {
+			repaint();
+			System.out.println("hello");
+			java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager()
+					.addKeyEventDispatcher(new KED());
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException ie) {
+				ie.printStackTrace();
+			}
+
 		}
 	}
 }

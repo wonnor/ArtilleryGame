@@ -16,6 +16,7 @@ public class WorldTester{
 		panel = new Panel();
 		frame.add(panel);
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public void run(){
 		
