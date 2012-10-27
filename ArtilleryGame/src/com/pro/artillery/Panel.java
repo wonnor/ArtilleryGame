@@ -31,7 +31,6 @@ public class Panel extends JPanel implements Runnable {
 	public void run() {
 		while (running) {
 			repaint();
-			System.out.println("hello");
 			java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager()
 					.addKeyEventDispatcher(new KED());
 			try {
