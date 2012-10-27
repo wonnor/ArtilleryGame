@@ -4,9 +4,6 @@ import com.pro.artillery.mob.*;
 
 public class Tank extends Mob
 {
-
-	String imagePath = "tank/tank.png";
-	String muzzlePath = "tank/muzzle.png";
 	Projectile projectile;
 
     public Tank()
@@ -16,7 +13,7 @@ public class Tank extends Mob
 
     public Tank(int x, int y)
     {
-    	super(x, y);
+    	super(x, y, "tank/tank.png");
     }
 
 	/**

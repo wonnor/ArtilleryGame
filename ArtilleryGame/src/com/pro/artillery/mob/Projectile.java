@@ -4,7 +4,6 @@ package com.pro.artillery.mob;
 public class Projectile extends Mob
 {
 
-	String imagePath = "projectile.png";
 
     public Projectile()
     {
@@ -13,7 +12,7 @@ public class Projectile extends Mob
 
     public Projectile(int x, int y)
     {
-    	super(x, y);
+    	super(x, y, "projectile.png");
     }
 
 

@@ -14,18 +14,19 @@ public class Mob
 {
 
 	BufferedImage sprite;
-	String imagePath = "mob.png";
 	int x;
 	int y;
 
     public Mob()
     {
-    	setImage();
+    	setImage("mob.png");
+    	this.x = 0;
+    	this.y = 0;
     }
 
-    public Mob(int x, int y)
+    public Mob(int x, int y, String image)
     {
-    	setImage();
+    	setImage(image);
     	this.x = x;
     	this.y = y;
     }
@@ -51,7 +52,7 @@ public class Mob
     /**
      * Sets the image of this mob to the image located at field imagePath
      */
-    public void setImage()
+    public void setImage(String imagePath)
     {
     	try{
     		sprite = ImageIO.read(new File(imagePath));
