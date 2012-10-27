@@ -53,18 +53,7 @@ public class World {
 	public void draw(Graphics g){
 		g.setColor(sky);
 		g.fillRect(0,0,width,height);
-		g.setColor(ground);
 		land.draw(g);
-	}
-	
-	/**
-	 * added by Jaime for the entertainment of the masses
-	 * @param name
-	 */
-	public void buttHoles(String name){
-		if (name.equals("Connor Watts")) {
-			System.out.println("I like cheese");
-		}
 	}
 }
 /**

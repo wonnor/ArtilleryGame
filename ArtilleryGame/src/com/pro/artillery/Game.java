@@ -14,7 +14,7 @@ public class Game extends JPanel implements Runnable
 	private static final long serialVersionUID = 1L;
 	
 	private Thread game = new Thread(this); //Creates the thread
-	private boolean isRunning = false; //the main ruuning boolean
+	private boolean isRunning = false; //the main running boolean
 	
 	//width and height of the game
 	public static final int WIDTH = 800;
@@ -80,7 +80,7 @@ public class Game extends JPanel implements Runnable
 		{
 			startMenu.draw(g);
 		}
-		if(curstate == mainmenustate)
+		else if(curstate == mainmenustate)
 		{
 			mainMenu.draw(g);
 		}
