@@ -11,7 +11,7 @@ public class Tank extends Mob
     	super();
     }
 
-    public Tank(int x, int y)
+    public Tank(double x, double y)
     {
     	super(x, y, "tank/tank.png");
     }

@@ -14,8 +14,8 @@ public class Mob
 {
 
 	BufferedImage sprite;
-	int x;
-	int y;
+	double x;
+	double y;
 
     public Mob()
     {
@@ -24,7 +24,7 @@ public class Mob
     	this.y = 0;
     }
 
-    public Mob(int x, int y, String image)
+    public Mob(double x, double y, String image)
     {
     	setImage(image);
     	this.x = x;
@@ -77,7 +77,7 @@ public class Mob
 	 */
 	public Rectangle getBoundingBox()
 	{
-		return new Rectangle(x, y, sprite.getWidth(), sprite.getHeight());
+		return new Rectangle((int)x, (int)y, sprite.getWidth(), sprite.getHeight());
 	}
 	
 	/**
@@ -98,6 +98,6 @@ public class Mob
 	 */
 	public void draw(Graphics g)
 	{
-		g.drawImage(sprite, x, y, null);
+		g.drawImage(sprite, (int)x, (int)y, null);
 	}
 }

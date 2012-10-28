@@ -1,6 +1,8 @@
 package com.pro.artillery;
 
+import com.pro.artillery.mob.Projectile;
 import com.pro.artillery.state.KED;
+import com.pro.artillery.state.Key;
 
 import java.awt.Graphics;
 
@@ -30,9 +32,12 @@ public class Panel extends JPanel implements Runnable {
 
 	public void run() {
 		while (running) {
+			world.update();
 			repaint();
-			java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager()
-					.addKeyEventDispatcher(new KED());
+			java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KED());
+			if (Key.pressedSPACE && world.projectiles.isEmpty()) {
+				world.projectiles.add(new Projectile(50, 250, 4, -6));
+			}
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException ie) {

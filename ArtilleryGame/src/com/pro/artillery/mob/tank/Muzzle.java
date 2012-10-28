@@ -12,7 +12,7 @@ public class Muzzle extends Mob
     	super();
     }
 
-    public Muzzle(int x, int y)
+    public Muzzle(double x, double y)
     {
     	super(x, y, "tank/muzzle.png");
     }
