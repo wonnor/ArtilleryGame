@@ -8,6 +8,7 @@ import java.util.Vector;
 import com.pro.artillery.mob.Projectile;
 import com.pro.artillery.mob.tank.Tank;
 import com.pro.artillery.state.Key;
+import com.pro.artillery.state.StateMachine;
 
 
 public class World {
@@ -17,7 +18,8 @@ public class World {
 	private int height, width; //dimensions of screen and world
 	private Color sky, ground; // color variables for drawing the world
 	public Vector<Projectile> projectiles;
-	public Tank tank;
+	public Tank tank1;
+	public Tank tank2;
 	public Terrain land;
 
 
@@ -39,7 +41,8 @@ public class World {
 		ground = new Color(39,165,28);
 		land = new Terrain(width,height/2,0,height/2,ground);
 		projectiles = new Vector<Projectile>();
-		tank = new Tank(20, land.height-32);
+		tank1 = new Tank(20, land.height-32);
+		tank2 = new Tank(716, land.height-32);
 	}
 
 	/**
@@ -58,16 +61,24 @@ public class World {
 	}
 
 	public void update(){
-		tank.update(projectiles);
+		if (StateMachine.getCurrentState() == StateMachine.State.PLAYER_ONE_TURN)
+			tank1.update(projectiles);
+		else if (StateMachine.getCurrentState() == StateMachine.State.PLAYER_TWO_TURN)
+			tank2.update(projectiles);
 		Iterator<Projectile> itr = projectiles.iterator();
 		while (itr.hasNext()) {
 			Projectile p = itr.next();
-			//p.update(gravity);
+			p.update(gravity);
 			if (p.getBoundingBox().intersects(new Rectangle(land.corner.x, land.corner.y, land.width, land.height))) {
 				itr.remove();
 			}
-			else if (p.isCollidingWith(tank)) {
+			else if (p.isCollidingWith(tank1)) {
 				itr.remove();
+				System.out.println("Player 1 hit!");
+			}
+			else if (p.isCollidingWith(tank2)) {
+				itr.remove();
+				System.out.println("Player 2 hit!");
 			}
 			else if (p.getBoundingBox().getMinX() < 0  || p.getBoundingBox().getMaxX() > width) {
 				itr.remove();
@@ -83,10 +94,11 @@ public class World {
 		g.setColor(sky);
 		g.fillRect(0,0,width,height);
 		land.draw(g);
-		tank.draw(g);
 		for (Projectile p : projectiles) {
 			p.draw(g);
 		}
+		tank1.draw(g);
+		tank2.draw(g);
 	}
 }
 /**

@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import com.pro.artillery.mob.*;
 import com.pro.artillery.state.Key;
+import com.pro.artillery.state.StateMachine;
 
 public class Tank extends Mob
 {
@@ -34,8 +35,8 @@ public class Tank extends Mob
     		muzzle.rotate(.01);
     	else if (Key.pressedA)
     		muzzle.rotate(-.01);
-		if (Key.pressedSPACE && projectiles.isEmpty())
-	    	fire(projectiles);
+		if (Key.pressedSPACE && projectiles.isEmpty()) 
+			fire(projectiles);
     }
     
 	/**
@@ -43,6 +44,9 @@ public class Tank extends Mob
 	 */
     public void fire(Vector<Projectile> projectiles) {
     	double theta = muzzle.rotation-Math.PI/2;
-    	projectiles.add(new Projectile((muzzle.getBoundingBox().x)+Math.cos(theta)*32, (muzzle.getBoundingBox().y+32)+Math.sin(theta)*32,0,0));// Math.cos(theta)*8, Math.sin(theta)*8));
+    	double cos_theta = Math.cos(theta);
+    	double sin_theta = Math.sin(theta);
+    	projectiles.add(new Projectile((muzzle.getBoundingBox().x)+cos_theta*28+sin_theta, (muzzle.getBoundingBox().y+32)+sin_theta*32-Math.abs(cos_theta*5),cos_theta*8, sin_theta*8));
+    	StateMachine.advanceTurn();
     }
 }

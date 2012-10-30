@@ -28,7 +28,7 @@ public class KED implements KeyEventDispatcher
 			Key.pressedSPACE = true;
 		else if (key.equals("released SPACE"))
 			Key.pressedSPACE = false;
-		System.out.println(key);
+		//System.out.println(key);
 		return true;
 	}
     
