@@ -19,7 +19,7 @@ public class Mob
 
     public Mob()
     {
-    	setImage("mob.png");
+    	setImage("res/mob/mob.png");
     	this.x = 0;
     	this.y = 0;
     }

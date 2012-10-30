@@ -4,8 +4,6 @@ import com.pro.artillery.mob.*;
 
 public class Muzzle extends Mob
 {
-
-	String muzzlePath = "tank/muzzle.png";
 	
     public Muzzle()
     {
@@ -14,7 +12,7 @@ public class Muzzle extends Mob
 
     public Muzzle(double x, double y)
     {
-    	super(x, y, "tank/muzzle.png");
+    	super(x, y, "res/mob/tank/muzzle.png");
     }
     
 }

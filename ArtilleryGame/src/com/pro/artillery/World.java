@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import com.pro.artillery.mob.Projectile;
+import com.pro.artillery.mob.tank.Tank;
 
 
 public class World {
@@ -15,6 +16,7 @@ public class World {
 	private int height, width; //dimensions of screen and world
 	private Color sky, ground; // color variables for drawing the world
 	public Vector<Projectile> projectiles;
+	public Tank tank;
 	public Terrain land;
 
 
@@ -36,6 +38,7 @@ public class World {
 		ground = new Color(39,165,28);
 		land = new Terrain(width,height/2,0,height/2,ground);
 		projectiles = new Vector<Projectile>();
+		tank = new Tank(20, land.height-32);
 	}
 
 	/**
@@ -61,6 +64,9 @@ public class World {
 			if (p.getBoundingBox().intersects(new Rectangle(land.corner.x, land.corner.y, land.width, land.height))) {
 				itr.remove();
 			}
+			/*else if (p.isCollidingWith(tank)) {
+				itr.remove();
+			}*/
 			else if (p.getBoundingBox().getMinX() < 0  || p.getBoundingBox().getMaxX() > width) {
 				itr.remove();
 			}
@@ -78,6 +84,7 @@ public class World {
 		for (Projectile p : projectiles) {
 			p.draw(g);
 		}
+		tank.draw(g);
 	}
 }
 /**

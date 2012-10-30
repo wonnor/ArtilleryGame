@@ -4,7 +4,6 @@ import com.pro.artillery.mob.*;
 
 public class Tank extends Mob
 {
-	Projectile projectile;
 
     public Tank()
     {
@@ -13,14 +12,10 @@ public class Tank extends Mob
 
     public Tank(double x, double y)
     {
-    	super(x, y, "tank/tank.png");
+    	super(x, y, "res/mob/tank/tank.png");
     }
 
 	/**
 	 * Spawns a new projectile (eventually will spawn projectile at loc of tank "muzzle"
 	 */
-	public void fire()
-	{
-		projectile = new Projectile();
-	}
 }

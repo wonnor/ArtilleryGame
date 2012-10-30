@@ -57,7 +57,7 @@ public class Game extends JPanel implements Runnable
 			repaint();
 			try
 			{
-				game.sleep(20);
+				Thread.sleep(20);
 			}
 			catch(InterruptedException ex)
 			{
