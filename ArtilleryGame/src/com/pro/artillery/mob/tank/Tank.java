@@ -42,6 +42,7 @@ public class Tank extends Mob
 	 * Spawns a new projectile (eventually will spawn projectile at loc of tank "muzzle"
 	 */
     public void fire(Vector<Projectile> projectiles) {
-    	projectiles.add(new Projectile(muzzle.getBoundingBox().x-1, muzzle.getBoundingBox().y+muzzle.getBoundingBox().height, Math.cos(muzzle.rotation-Math.PI/2)*8, Math.sin(muzzle.rotation-Math.PI/2)*8));
+    	double theta = muzzle.rotation-Math.PI/2;
+    	projectiles.add(new Projectile((muzzle.getBoundingBox().x)+Math.cos(theta)*32, (muzzle.getBoundingBox().y+32)+Math.sin(theta)*32,0,0));// Math.cos(theta)*8, Math.sin(theta)*8));
     }
 }

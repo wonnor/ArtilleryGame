@@ -62,13 +62,13 @@ public class World {
 		Iterator<Projectile> itr = projectiles.iterator();
 		while (itr.hasNext()) {
 			Projectile p = itr.next();
-			p.update(gravity);
+			//p.update(gravity);
 			if (p.getBoundingBox().intersects(new Rectangle(land.corner.x, land.corner.y, land.width, land.height))) {
 				itr.remove();
 			}
-			/*else if (p.isCollidingWith(tank)) {
+			else if (p.isCollidingWith(tank)) {
 				itr.remove();
-			}*/
+			}
 			else if (p.getBoundingBox().getMinX() < 0  || p.getBoundingBox().getMaxX() > width) {
 				itr.remove();
 			}
@@ -83,10 +83,10 @@ public class World {
 		g.setColor(sky);
 		g.fillRect(0,0,width,height);
 		land.draw(g);
+		tank.draw(g);
 		for (Projectile p : projectiles) {
 			p.draw(g);
 		}
-		tank.draw(g);
 	}
 }
 /**
