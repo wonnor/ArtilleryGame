@@ -13,9 +13,9 @@ import java.awt.image.AffineTransformOp;
 public class Mob
 {
 
-	BufferedImage sprite;
-	double x;
-	double y;
+	protected BufferedImage sprite;
+	protected double x;
+	protected double y;
 
     public Mob()
     {

@@ -57,6 +57,7 @@ public class World {
 	}
 
 	public void update(){
+		tank.update();
 		Iterator<Projectile> itr = projectiles.iterator();
 		while (itr.hasNext()) {
 			Projectile p = itr.next();
