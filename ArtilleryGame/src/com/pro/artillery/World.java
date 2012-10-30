@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import com.pro.artillery.mob.Projectile;
 import com.pro.artillery.mob.tank.Tank;
+import com.pro.artillery.state.Key;
 
 
 public class World {
@@ -57,7 +58,7 @@ public class World {
 	}
 
 	public void update(){
-		tank.update();
+		tank.update(projectiles);
 		Iterator<Projectile> itr = projectiles.iterator();
 		while (itr.hasNext()) {
 			Projectile p = itr.next();

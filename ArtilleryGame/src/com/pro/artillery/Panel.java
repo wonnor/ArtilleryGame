@@ -35,9 +35,6 @@ public class Panel extends JPanel implements Runnable {
 			world.update();
 			repaint();
 			java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(new KED());
-			if (Key.pressedSPACE && world.projectiles.isEmpty()) {
-				world.projectiles.add(new Projectile(50, 275, 4, -6));
-			}
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException ie) {
