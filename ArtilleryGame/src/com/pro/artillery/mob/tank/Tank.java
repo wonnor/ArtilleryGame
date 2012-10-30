@@ -15,13 +15,15 @@ public class Tank extends Mob
     public Tank()
     {
     	super();
-    	muzzle = new Muzzle(getBoundingBox().x+40, getBoundingBox().y-32);
+    	muzzle = new Muzzle(getBoundingBox().x+40, getBoundingBox().y-32, Color.BLUE);
     }
 
-    public Tank(double x, double y)
+    public Tank(double x, double y, Color color)
     {
-    	super(x, y, "res/mob/tank/tank.png");
-    	muzzle = new Muzzle(getBoundingBox().x+40, getBoundingBox().y-32);
+    	super(x, y, "res/mob/tank/tank_blue.png");
+    	if (color == Color.RED)
+    		setImage("res/mob/tank/tank_red.png");
+    	muzzle = new Muzzle(getBoundingBox().x+40, getBoundingBox().y-32, color);
     }
 
     public void draw(Graphics g)
@@ -48,5 +50,9 @@ public class Tank extends Mob
     	double sin_theta = Math.sin(theta);
     	projectiles.add(new Projectile((muzzle.getBoundingBox().x)+cos_theta*28+sin_theta, (muzzle.getBoundingBox().y+32)+sin_theta*32-Math.abs(cos_theta*5),cos_theta*8, sin_theta*8));
     	StateMachine.advanceTurn();
+    }
+    
+    public enum Color {
+    	BLUE, RED;
     }
 }

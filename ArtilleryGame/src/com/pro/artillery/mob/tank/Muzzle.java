@@ -16,9 +16,11 @@ public class Muzzle extends Mob
     	super();
     }
 
-    public Muzzle(double x, double y)
+    public Muzzle(double x, double y, Tank.Color color)
     {
-    	super(x, y, "res/mob/tank/muzzle.png");
+    	super(x, y, "res/mob/tank/muzzle_blue.png");
+    	if (color == Tank.Color.RED)
+    		setImage("res/mob/tank/muzzle_red.png");
     }
     
     public void draw(Graphics g)

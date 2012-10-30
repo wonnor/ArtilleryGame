@@ -41,8 +41,8 @@ public class World {
 		ground = new Color(39,165,28);
 		land = new Terrain(width,height/2,0,height/2,ground);
 		projectiles = new Vector<Projectile>();
-		tank1 = new Tank(20, land.height-32);
-		tank2 = new Tank(716, land.height-32);
+		tank1 = new Tank(20, land.height-32, Tank.Color.BLUE);
+		tank2 = new Tank(716, land.height-32, Tank.Color.RED);
 	}
 
 	/**
